@@ -1,30 +1,30 @@
-// import { SignedIn, auth } from "@clerk/nextjs";
+import { SignedIn, auth } from "@clerk/nextjs";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
-// import Header from "@/components/shared/Header";
-// import { Button } from "@/components/ui/button";
-// import { plans } from "@/constants";
-// import { getUserById } from "@/lib/actions/user.actions";
-// import Checkout from "@/components/shared/Checkout";
+import Header from "@/components/shared/Header";
+import { Button } from "@/components/ui/button";
+import { plans } from "@/constants";
+import { getUserById } from "@/lib/actions/user.actions";
+import Checkout from "@/components/shared/Checkout";
 
 const Credits = async () => {
-  // const { userId } = auth();
+  const { userId } = auth();
 
-  // if (!userId) redirect("/sign-in");
+  if (!userId) redirect("/sign-in");
 
-  // const user = await getUserById(userId);
+  const user = await getUserById(userId);
 
   return (
     <>
-      {/* <Header
+      <Header
         title="Buy Credits"
         subtitle="Choose a credit package that suits your needs!"
-      /> */}
+      />
 
       <section>
         <ul className="credits-list">
-          {/* {plans.map((plan) => (
+          {plans.map((plan) => (
             <li key={plan.name} className="credits-item">
               <div className="flex-center flex-col gap-3">
                 <Image src={plan.icon} alt="check" width={50} height={50} />
@@ -69,7 +69,7 @@ const Credits = async () => {
                 </SignedIn>
               )}
             </li>
-          ))} */}
+          ))}
         </ul>
       </section>
     </>
